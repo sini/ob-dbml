@@ -26,14 +26,22 @@
           (,x-keywords-regexp . font-lock-keyword-face)
           (,x-fn-regexp . font-lock-function-name-face)
           (">" . font-lock-function-name-face))))
+(defvar dbml-mode-map
+  (let ((map (copy-keymap special-mode-map)))
+    (define-key map (kbd "n") #'next-line)
+    (define-key map (kbd "p") #'previous-line)
+     ;; Set parent map for foo-mode-map:
+    (set-keymap-parent map special-mode-map)
+     map)
+  "Keymap for foo-mode.")
 
-(define-derived-mode dbml-mode python-mode
+(define-derived-mode dbml-mode text-mode
   "dbml"
   :group 'dbml
   :syntax-table dbml-mode-syntax-table
   (setq font-lock-defaults '((dbml-font-lock-keywords)))
-  (setq-local python-indent 2)
-  (font-lock-fontify-buffer))
+  (font-lock-fontify-buffer)
+)
 
 (add-to-list 'auto-mode-alist '("\\.dbd\\'" . dbml-mode))
 (add-to-list 'auto-mode-alist '("\\.dbml\\'" . dbml-mode))

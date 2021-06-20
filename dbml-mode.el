@@ -35,7 +35,7 @@
      map)
   "Keymap for foo-mode.")
 
-(define-derived-mode dbml-mode text-mode
+(define-derived-mode dbml-mode prog-mode
   "dbml"
   :group 'dbml
   :syntax-table dbml-mode-syntax-table

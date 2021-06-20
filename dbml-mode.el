@@ -14,8 +14,8 @@
 
 (setq dbml-font-lock-keywords
       (let* ((x-types '("int" "integer" "char" "varchar" "bool" "boolean"
-                        "string" "text" "timestamp" "date"))
-             (x-fn-names  '("Table" "Ref" "ref" "Enum" "note"))
+                        "string" "text" "timestamp" "date" "uuid" "json"))
+             (x-fn-names  '("Table" "table" "Ref" "ref" "Enum" "enum" "note"))
              (x-keywords '("not" "null" "pk" "primary key" "unique"))
 
              (x-types-regexp (regexp-opt x-types 'words))
